@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        main3(7)
+        println(main4("a", listOf("aaa", "aaaa", "aa", "a")))
     }
 
     // X의 n승을 구하는 함수를 재귀로 구현해라
@@ -29,5 +29,11 @@ class MainActivity : AppCompatActivity() {
         arr += n%2
         if (n == 1) return
         return main3(n/2)
+    }
+
+    // 입력값 n이 리스트에 존재하는지 확인하는 함수를 재귀로 구현해보자
+    fun main4(n : String, list : List<String>) : Boolean {
+        if (list[0] == n) return true
+        return main4(n, list.drop(1))
     }
 }
