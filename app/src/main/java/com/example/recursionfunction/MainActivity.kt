@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        main2(7)
+        main3(7)
     }
 
     // X의 n승을 구하는 함수를 재귀로 구현해라
@@ -21,5 +21,13 @@ class MainActivity : AppCompatActivity() {
     fun main2(n : Int) : Int {
         if (n == 0) return 1
         return n*main2(n-1)
+    }
+
+    // 10진수 숫자를 입력받아서 2진수 문자열로 변환하는 함수를 작성
+    var arr = ""
+    fun main3(n : Int) {
+        arr += n%2
+        if (n == 1) return
+        return main3(n/2)
     }
 }
