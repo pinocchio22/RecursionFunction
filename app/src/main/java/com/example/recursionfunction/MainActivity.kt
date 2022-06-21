@@ -2,13 +2,24 @@ package com.example.recursionfunction
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlin.math.max
+import kotlin.math.min
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        println(gdc(16,40,1))
+    }
 
-        println(main4("a", listOf("aaa", "aaaa", "aa", "a")))
+    // 최대공약수를 구하는 gdc 함수를 작성해 보자.
+    fun gdc(a : Int , b : Int, num : Int) : Int {
+            for (i in min(a,b) downTo 1) {
+                if (a%i == 0 && b%i == 0) {
+                    return gdc(a%i, b%i, num*i)
+                }
+            }
+        return num
     }
 
     // X의 n승을 구하는 함수를 재귀로 구현해라
